@@ -1,0 +1,246 @@
+\chapter{File and Directory Description}
+\label{cap:apendiceB}
+
+This thesis involves a lot of files and directories. To makes an easy visualization of all its contents a directory tree was built below\footnote{ A Github repository with all the source code used during the implementation and tests. \url{https://github.com/capellaresumo/MAC0499}}. To simplify the integration the directory structure is based on the OpenCores\footnote{\url{http://cdn.opencores.org/downloads/opencores_coding_guidelines.pdf}} recommendations, the same used in the openMSP430 project.
+
+A TINY DESCRIPTION OF EACH FILE WILL BE DONE!!!!
+
+\begin{longtable}{|p{0.15cm}|p{0.15cm}|p{0.15cm}|p{0.15cm}|p{0.15cm}|p{0.15cm}|p{8.6cm}|}
+	\hline 
+	\multicolumn{6}{|l|}{FULL\_APP} & \\
+	\hline
+	& \multicolumn{5}{l|}{PythonServer} & \\
+	\hline
+	& & \multicolumn{4}{l|}{server.py} & \\
+	\hline
+	& \multicolumn{5}{l|}{WiFiClient} & \\
+	\hline
+	& & \multicolumn{4}{l|}{WiFiClient.ino} & \\
+	\hline
+	\multicolumn{6}{|l|}{README.md} & \\
+	\hline
+	\multicolumn{6}{|l|}{SMART} & \\
+	\hline
+	& \multicolumn{5}{l|}{bench} & \\
+	\hline
+	& & \multicolumn{4}{l|}{verilog} & \\
+	\hline
+	& & & \multicolumn{3}{l|}{glbl.v} & \\
+	\hline
+	& & & \multicolumn{3}{l|}{msp\_debug.v} & \\
+	\hline
+	& & & \multicolumn{3}{l|}{registers.v} & \\
+	\hline
+	& & & \multicolumn{3}{l|}{tb\_openMSP430\_fpga.v} & \\
+	\hline
+	& & & \multicolumn{3}{l|}{timescale.v} & \\
+	\hline
+	& \multicolumn{5}{l|}{rtl} & \\
+	\hline
+	& & \multicolumn{4}{l|}{verilog} & \\
+	\hline
+	& & & \multicolumn{3}{l|}{clock.v} & \\
+	\hline
+	& & & \multicolumn{3}{l|}{coregen} & \\
+	\hline
+	& & & & \multicolumn{2}{l|}{coregen.cgp} & \\
+	\hline
+	& & & & \multicolumn{2}{l|}{spartan6\_dmem.xco} & \\
+	\hline
+	& & & & \multicolumn{2}{l|}{spartan6\_pmem.xco} & \\
+	\hline
+	& & & \multicolumn{3}{l|}{omsp\_uart.v} & \\
+	\hline
+	& & & \multicolumn{3}{l|}{openMSP430\_fpga.v} & \\
+	\hline
+	& & & \multicolumn{3}{l|}{openmsp430} & \\
+	\hline
+	& & & \multicolumn{3}{l|}{sha256} & \\
+	\hline
+	& & & & \multicolumn{2}{l|}{sha256\_core.v} & \\
+	\hline
+	& & & & \multicolumn{2}{l|}{sha256\_k\_constants.v} & \\
+	\hline
+	& & & & \multicolumn{2}{l|}{sha256\_w\_mem.v} & \\
+	\hline
+	& & & & \multicolumn{2}{l|}{sha256per.v} & \\
+	\hline
+	& & & \multicolumn{3}{l|}{smart\_mac.v} & \\
+	\hline
+	& \multicolumn{5}{l|}{sim} & \\
+	\hline
+	& & \multicolumn{4}{l|}{rtl\_sim} & \\
+	\hline
+	& & & \multicolumn{3}{l|}{bin} & \\
+	\hline
+	& & & & \multicolumn{2}{l|}{asm2ihex.sh} & \\
+	\hline
+	& & & & \multicolumn{2}{l|}{helper.sh} & \\
+	\hline
+	& & & & \multicolumn{2}{l|}{ihex2mif.tcl} & \\
+	\hline
+	& & & & \multicolumn{2}{l|}{msp430sim} & \\
+	\hline
+	& & & & \multicolumn{2}{l|}{omsp\_config.sh} & \\
+	\hline
+	& & & & \multicolumn{2}{l|}{rtlsim.sh} & \\
+	\hline
+	& & & & \multicolumn{2}{l|}{template.x} & \\
+	\hline
+	& & & & \multicolumn{2}{l|}{template\_defs.asm} & \\
+	\hline
+	& & & \multicolumn{3}{l|}{run} & \\
+	\hline
+	& & & & \multicolumn{2}{l|}{cores\_build} & \\
+	\hline
+	& & & & \multicolumn{2}{l|}{run} & \\
+	\hline
+	& & & & \multicolumn{2}{l|}{run\_clean} & \\
+	\hline
+	& & & & \multicolumn{2}{l|}{test} & \\
+	\hline
+	& & & & \multicolumn{2}{l|}{tests} & \\
+	\hline
+	& & & & & acess\_key\_reset & \\
+	\hline
+	& & & & & hw\_uart\_isim & \\
+	\hline
+	& & & & & hw\_uart\_iverilog & \\
+	\hline
+	& & & & & led\_blink & \\
+	\hline
+	& & & & & sha256 & \\
+	\hline
+	& & & & & smart\_code\_block & \\
+	\hline
+	& & & & & smart\_v1 & \\
+	\hline
+	& & & \multicolumn{3}{l|}{src} & \\
+	\hline
+	& & & & \multicolumn{2}{l|}{acess\_key.s43} & \\
+	\hline
+	& & & & \multicolumn{2}{l|}{acess\_key.v} & \\
+	\hline
+	& & & & \multicolumn{2}{l|}{hw\_uart.v} & \\
+	\hline
+	& & & & \multicolumn{2}{l|}{led\_blink.v} & \\
+	\hline
+	& & & & \multicolumn{2}{l|}{main.s43} & \\
+	\hline
+	& & & & \multicolumn{2}{l|}{main.v} & \\
+	\hline
+	& & & & \multicolumn{2}{l|}{sha256.v} & \\
+	\hline
+	& & & & \multicolumn{2}{l|}{smart\_code\_block.s43} & \\
+	\hline
+	& & & & \multicolumn{2}{l|}{smart\_code\_block.v} & \\
+	\hline
+	& & & & \multicolumn{2}{l|}{smart\_v1.v} & \\
+	\hline
+	& & & & \multicolumn{2}{l|}{submit.f} & \\
+	\hline
+	& & & & \multicolumn{2}{l|}{submit.prj} & \\
+	\hline
+	& & & & \multicolumn{2}{l|}{write\_flash.v} & \\
+	\hline
+	& \multicolumn{5}{l|}{software} & \\
+	\hline
+	& & \multicolumn{4}{l|}{hw\_uart} & \\
+	\hline
+	& & & \multicolumn{3}{l|}{main.c} & \\
+	\hline
+	& & & \multicolumn{3}{l|}{makefile} & \\
+	\hline
+	& & \multicolumn{4}{l|}{led\_blink} & \\
+	\hline
+	& & & \multicolumn{3}{l|}{Makefile} & \\
+	\hline
+	& & & \multicolumn{3}{l|}{main.c} & \\
+	\hline
+	& & \multicolumn{4}{l|}{led\_blink\_real} & \\
+	\hline
+	& & & \multicolumn{3}{l|}{Makefile} & \\
+	\hline
+	& & & \multicolumn{3}{l|}{main.c} & \\
+	\hline
+	& & \multicolumn{4}{l|}{libs} & \\
+	\hline
+	& & & \multicolumn{3}{l|}{Makefile} & \\
+	\hline
+	& & & \multicolumn{3}{l|}{cprintf} & \\
+	\hline
+	& & & & \multicolumn{2}{l|}{cprintf.c} & \\
+	\hline
+	& & & & \multicolumn{2}{l|}{cprintf.h} & \\
+	\hline
+	& & & \multicolumn{3}{l|}{hardware.h} & \\
+	\hline
+	& & & \multicolumn{3}{l|}{linker.msp430-elf.x} & \\
+	\hline
+	& & & \multicolumn{3}{l|}{omsp\_system.h} & \\
+	\hline
+	& & & \multicolumn{3}{l|}{smart} & \\
+	\hline
+	& & & & \multicolumn{2}{l|}{smart.c} & \\
+	\hline
+	& & & & \multicolumn{2}{l|}{smart.h} & \\
+	\hline
+	& & & & \multicolumn{2}{l|}{test.py} & \\
+	\hline
+	& & \multicolumn{4}{l|}{sha256} & \\
+	\hline
+	& & & \multicolumn{3}{l|}{main.c} & \\
+	\hline
+	& & & \multicolumn{3}{l|}{makefile} & \\
+	\hline
+	& & \multicolumn{4}{l|}{smart\_app} & \\
+	\hline
+	& & & \multicolumn{3}{l|}{Makefile} & \\
+	\hline
+	& & & \multicolumn{3}{l|}{main.c} & \\
+	\hline
+	& & & \multicolumn{3}{l|}{makekey.py} & \\
+	\hline
+	& & \multicolumn{4}{l|}{smart\_v1} & \\
+	\hline
+	& & & \multicolumn{3}{l|}{Makefile} & \\
+	\hline
+	& & & \multicolumn{3}{l|}{main.c} & \\
+	\hline
+	& & & \multicolumn{3}{l|}{makekey.py} & \\
+	\hline
+	& \multicolumn{5}{l|}{synthesis} & \\
+	\hline
+	& & \multicolumn{4}{l|}{xilinx} & \\
+	\hline
+	& & & \multicolumn{3}{l|}{0\_create\_bitstream.sh} & \\
+	\hline
+	& & & \multicolumn{3}{l|}{1\_initialize\_pmem.sh} & \\
+	\hline
+	& & & \multicolumn{3}{l|}{2\_generate\_prom\_file.sh} & \\
+	\hline
+	& & & \multicolumn{3}{l|}{3\_usb\_upload.py} & \\
+	\hline
+	& & & \multicolumn{3}{l|}{bitstreams} & \\
+	\hline
+	& & & \multicolumn{3}{l|}{scripts} & \\
+	\hline
+	& & & & \multicolumn{2}{l|}{extract\_bmm\_refloc.tcl} & \\
+	\hline
+	& & & & \multicolumn{2}{l|}{ihex2mem.tcl} & \\
+	\hline
+	& & & & \multicolumn{2}{l|}{memory.bmm} & \\
+	\hline
+	& & & & \multicolumn{2}{l|}{openMSP430\_fpga.prj} & \\
+	\hline
+	& & & & \multicolumn{2}{l|}{openMSP430\_fpga.ucf} & \\
+	\hline
+	& & & & \multicolumn{2}{l|}{xst\_verilog.opt} & \\
+	\hline
+	\multicolumn{6}{|l|}{SMART\_MAC\_TEST} & \\
+	\hline
+	& \multicolumn{5}{l|}{run\_tests.sh} & \\
+	\hline
+	& \multicolumn{5}{l|}{test.v} & \\
+	\hline
+\end{longtable} 

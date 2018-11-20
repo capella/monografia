@@ -1,0 +1,27 @@
+%% ------------------------------------------------------------------------- %%
+\chapter{Conclusion}
+\label{cap:conclusoes}
+
+
+Any work that talks about security needs to be carefully made because if it provides a solution with any flaw, one attacker can study it and use this breach for a malicious propose. This thesis works with a simple solution to provide the remote attestation ability for one embedded device. As said, this involves programming multiple layers and change hardware at a low level. Although the small changes in the hardware, all of them were carefully made to prevent any error. Tests were written for most of the device changes and codes for the same motive, guarantee the absence of flaws. 
+
+During the development, several errors occur. Debugging this errors sometimes is not trivial, because at principle the layers it happens is not known and find where it is a hard task. Also, some tests run correctly in the computer simulations, but when executed in a real FPGA they mysterious fails. 
+
+This situation happens two times during the thesis development, consuming a lot of work time. The first one was related to the reset pin. In the computer tests, the buttons pins were set to the LOW state when unpressed. However, the real FPGA set the value to HIGH when unpressed. This small difference produced sequential resets in the device and was discovery only using an oscilloscope. 
+
+Another similar error occurs in the tests of SMART code. When it was called, the device simple restart itself. After many tests and hours debugging, was discovered that the connection of the instruction pointer was being made in way correctly by the Verilog language, but not valid to the Xilinx HDL text processor. Because of this stupid error, the software responsible for building the connection of the FPGA had trimmed out the SMART module.
+
+Furthermore, simulation tests that involve the full microcontroller behaviour take significant time to be executed. This delay happens because of this kind of tests simulated the full asynchrony serial communication. Also, depending on the size of the microcontroller code or if it was several loops, the instructions decode end execution takes too long to end. This situation happens, for example, when a test with a software SHA256 implementation was run. The test took more than one hour.
+
+Although all the difficulties, the SMART was successfully reimplemented. Everything was made to guarantee SMART premises to be valid and unviolated. Also, the primary objective of this work, to run SMART in a real FPGA, was accomplished, proving that SMART is a simple and an efficient solution to implement the remote attestation capability on embedded devices.
+
+
+This work has some improvements to be made as a part of future work. Implementing the SMART in others microcontrollers units, like the AVR, is not done. Doing it in future work could prove that the generality of the decision of only changing the memory bus.
+
+Also, as the original article, this thesis not formally verified the SMART implementation and premises. Some recent work has been done in this area \cite{novo}. In this article, a formally verified SMART implementation is suggested.
+
+Another interesting topic of future work is extending the device hardware changes to add more security feature and study how they can be used with SMART. For example, adding a secure random number generator peripheral can add the capability for the device to verify the identity of the remote server. It generates a random sequence of bytes, produces a hash from it and requests the server to send the expected hash of the random sequence. If the server produces the correct hash, the device can confirm that the server has its key.
+
+Hardware improvements can also be made. For example, changing the wireless module can improve the connection speed and reduce the number of communication error. Study the SMART changes necessary to make SMART enable to handle and manage remote updates is also an interesting topic.
+
+Concluding, it was showed that SMART is implemented with ease and its make remote attestation viable for embedded devices. 

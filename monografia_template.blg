@@ -1,0 +1,82 @@
+This is BibTeX, Version 0.99d (TeX Live 2015)
+Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
+The top-level auxiliary file: monografia_template.aux
+The style file: abbrvnat.bst
+A level-1 auxiliary file: apen-mymodule.aux
+A level-1 auxiliary file: apen-filesdescriptions.aux
+Illegal, another \bibstyle command---line 139 of file monografia_template.aux
+ : \bibstyle
+ :          {plainnat-ime}
+I'm skipping whatever remains of this command
+Database file #1: bibliografia.bib
+Warning--entry type for "tpm" isn't style-file defined
+--line 160 of file bibliografia.bib
+Warning--to sort, need author or key in gartner
+Warning--to sort, need author or key in legup
+Warning--to sort, need author or key in open
+Warning--to sort, need author or key in dcm
+Warning--to sort, need author or key in hash
+Too many commas in name 1 of "Karim Eldefrawy, Ivan O. Nunes, Norrathep Rattanavipanon, Michael Steiner, Gene Tsudik" for entry novo
+while executing---line 1347 of file abbrvnat.bst
+Too many commas in name 1 of "Karim Eldefrawy, Ivan O. Nunes, Norrathep Rattanavipanon, Michael Steiner, Gene Tsudik" for entry novo
+while executing---line 1347 of file abbrvnat.bst
+Too many commas in name 1 of "Karim Eldefrawy, Ivan O. Nunes, Norrathep Rattanavipanon, Michael Steiner, Gene Tsudik" for entry novo
+while executing---line 1347 of file abbrvnat.bst
+Too many commas in name 1 of "Karim Eldefrawy, Ivan O. Nunes, Norrathep Rattanavipanon, Michael Steiner, Gene Tsudik" for entry novo
+while executing---line 1347 of file abbrvnat.bst
+Warning--empty journal in smart
+Warning--empty journal in minimalistaproacRA
+Too many commas in name 1 of "Karim Eldefrawy, Ivan O. Nunes, Norrathep Rattanavipanon, Michael Steiner, Gene Tsudik" for entry novo
+while executing---line 1429 of file abbrvnat.bst
+Too many commas in name 1 of "Karim Eldefrawy, Ivan O. Nunes, Norrathep Rattanavipanon, Michael Steiner, Gene Tsudik" for entry novo
+while executing---line 1429 of file abbrvnat.bst
+Too many commas in name 1 of "Karim Eldefrawy, Ivan O. Nunes, Norrathep Rattanavipanon, Michael Steiner, Gene Tsudik" for entry novo
+while executing---line 1429 of file abbrvnat.bst
+Too many commas in name 1 of "Karim Eldefrawy, Ivan O. Nunes, Norrathep Rattanavipanon, Michael Steiner, Gene Tsudik" for entry novo
+while executing---line 1429 of file abbrvnat.bst
+Warning--empty journal in novo
+Warning--empty journal in attacks
+Warning--empty journal in SWATT
+Warning--empty journal in dangersha1
+You've used 19 entries,
+            2773 wiz_defined-function locations,
+            710 strings with 8428 characters,
+and the built_in function-call counts, 9282 in all, are:
+= -- 846
+> -- 540
+< -- 9
++ -- 187
+- -- 168
+* -- 765
+:= -- 1336
+add.period$ -- 71
+call.type$ -- 19
+change.case$ -- 112
+chr.to.int$ -- 19
+cite$ -- 54
+duplicate$ -- 421
+empty$ -- 746
+format.name$ -- 182
+if$ -- 2007
+int.to.chr$ -- 1
+int.to.str$ -- 1
+missing$ -- 13
+newline$ -- 114
+num.names$ -- 56
+pop$ -- 263
+preamble$ -- 1
+purify$ -- 94
+quote$ -- 0
+skip$ -- 353
+stack$ -- 0
+substring$ -- 271
+swap$ -- 76
+text.length$ -- 6
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 209
+warning$ -- 11
+while$ -- 62
+width$ -- 0
+write$ -- 269
+(There were 9 error messages)

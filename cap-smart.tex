@@ -1,0 +1,90 @@
+%% ------------------------------------------------------------------------- %%
+\chapter{SMART}
+
+Um dos principais objetivos desse trabalho é reproduzir os os estudos realizados no trabalho \textit{SMART: Secure and Minimal Architecture for (Establishing a Dynamic) Root of Trust} \citeyearpar{smart}. Nesse trabalho é descrito como deve ser feito o mínimo hardware para implementar um mecanismo de verificação remota. 
+
+No artigo primeiro há uma descrição teórica do que deve ser feito e posteriormente o algoritmo é implementado em dois microcontroladores distinto. Alguns detalhes da implementação não são completamente especificados. 
+
+%% ------------------------------------------------------------------------- %%
+\section{Descrição do Artigo}
+
+Para garantir 
+
+\section{Detalhes da Implementação}
+
+Pra realizar a implementação das técnicas descritas no item anterior, o artigo utiliza o descrição de hardware de dois microcontroladores distintos, um Atmel AVR e um Texas Instruments
+MSP430. Existem implementações desses microcontroladores abertas, disponíveis pelo \textit{OpenCores Project}. Na implementação desse trabalho vamos utilizar apenas o openMSP430 [\citenum{open}], implementação aberta do microcontrolador Texas Instruments MSP430.
+
+O openMSP430 está descrito em Verilog, portanto todas as modificações realizadas nele serão feitas utilizando essa linguagem de descrição de hardware. Um dos objetivos finais desse trabalho é testar a implementação em um FPGA real, portanto todos os testes realizados em Verilog serão efetuados com duas ferramentas de simulação de hardware: Icarus Verilog \footnote{\url{http://iverilog.icarus.com/}}, uma ferramenta aperta e \textit{open-source}; ISE Simulator (ISim)\footnote{\url{https://www.xilinx.com/products/design-tools/isim.html}}, software de simulação proprietário da Xilinx.
+
+No artigo há uma breve descrição como é feito o controle de acesso da chave privada. No entanto, não é dito como esse controle é implementado nas modificações efetuadas no opemMSP430. Além disso, não há citação como é realizado o controle de acesso a parte da ROM onde o código do SMART está implementado. 
+
+Com o objetivo de manter as mesmas garantias do necessárias e simplificar a implementação dos controles criei um módulo de controle de acesso à memória (MCAM) que ficará entre a memória e o microcontrolador. A descrição desse módulo pode ser visto no apêndice \ref{cap:apendiceA}.
+
+Colocamos dois desses módulos no barramento da memória ROM. O primeiro tem o objetivo de não permitir que a chave seja acessada por um código não autorizado. O segundo, tem o objetivo de inibir que o código do SMART seja chamado ou lido se sua primeira instrução não for executada.
+
+\begin{figure}
+	\centering
+	\newlength\figureheight
+	\include{figuras/implementacao}
+	\label{fig:implementacao}
+	\caption{A esquerda temos a implementação do openMSP430 ligado a memória RAM e ROM. À direita temos como ficou a ligação com a memória introduzindo o modulo SMART.}
+\end{figure}
+
+
+Na \ref{fig:implementacao} é possível observar como foi introduzido os módulos de controle de acesso à memória, note que estão em sequência.
+
+Apesar dessa implementação parecer distinta da apresentada no artigo, ele garante o que é esperado.
+
+
+
+
+Tamanho da memória 65536 bytes.
+
+\begin{center}
+
+\begin{tabular}{|c|c|c|c|c|}
+	\hline 
+	End. Início& End. Fim&  Função & Tamanho & Local\\ \hline
+	0 & & Periféricos&& RAM\\ 
+	\hline
+	& & Data & & RAM\\ 
+	\hline
+	& & Não Usada & & \\ 
+	\hline
+	& & Programa&& ROM\\ 
+	\hline
+	0xFAE0 & 0xFEDF & Smart& 1024& ROM\\ 
+	\hline
+	0xFEE0 & 0xFFDF & Chave & 256& ROM\\ 
+	\hline
+	0xFFE0 & 0xFFFF & Interrupções& 32& ROM\\ 
+	\hline
+\end{tabular} 
+
+\end{center}
+
+
+
+
+%implementacoes feitas
+
+%como foi faze-las?
+
+%foi possivel implementar tudo que estava no artigo?
+
+%teste e resultados
+
+%problemas
+
+%Porque o desligamento das interupcoes nao eh feito via software
+
+%Onde está o bloquei no acesso da Key e ROM (como eh feito). Porque nao externo.
+
+%Foi testado? %http://www.sourceware.org/git/gitweb.cgi?p=newlib-cygwin.git;a=blob;f=libgloss/msp430/crt0.S;hb=HEAD
+
+
+%Marcador de entrada e saida da parte de verificacao.
+
+%Ele abre a possibilidade de chamada de uma funcao dentro do codigo do smart. Qual a vantagem? 
+

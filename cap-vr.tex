@@ -1,0 +1,52 @@
+%% ------------------------------------------------------------------------- %%
+\chapter{Verificação Remota}
+
+
+%Explicar detalhadamente conceitos de verificacao remota
+
+%Na maior parte desse trabalho vamos tratar sobre \textit{verificação remota}, termo proveniente do inglês de \textit{Remote Attestation}. Uma verificação remota se realiza quando temos um dispositivo e queremos atestar remotamente sua integridade.
+
+In this work we will talk about 
+
+Um dispositivo é qualquer hardware que pode ser programado para uma função específica. Os algorítimos e métodos desse trabalho podem ser aplicados para diversos tipos de dispositivos, como computadores e celulares. No entanto, o foco principal será em dispositivos embarcados. Eles são dispositivos eletrônicos que tem o principal objetivo de servir a uma única tarefa. Na maior parte dos casos apresentam uma arquitetura simples e não possuem um sistema operacional atrelado.
+
+Um dispositivo integro, ou que preserva sua integridade, é um dispositivo que foi programado para um propósito e mantém o seu programa original sem modificações. Além disso, esse dispositivo deve estar em um estado conhecido. A maneira mais fácil de verificar a integridade de um dispositivo é verificar se ele preserva a sua memória original (memória do programa) e se a memória dinâmica durante a execução do programa está em um estado conhecido.
+
+Utilizaremos o termo remoto para designar a existência de um canal de comunicação entre dois dispositivos, podendo esse canal não apresentar uma conexão segura. Um exemplo de um canal que possibilita uma conexão remota é a internet. No entanto, outros canais como conexões RS232 e I2C, também serão considerados como remotos.
+
+Um elemento importante da verificação remota é o verificador. Esse é um dispositivo que tem a capacidade de remotamente verificar que outro dispositivo está integro. 
+
+Para exemplificar um esquema de verificação remota completo, suponha que temos um dispositivo embarcado responsável por ativar o sistema de irrigação de um jardim. Esse dispositivo, se mal programado, pode ser vulnerável a falhas que comprometem sua função. A verificação remota, funciona para descobrir se ele perdeu sua integridade. Normalmente teremos um servidor da empresa do dispositivo que irá de tempos em tempos verificar se ele continua integro. Caso seja identificado a ruptora de sua integridade, a verificação remota terá a capacidade de identificar a mesma, mas não de repará-la.
+
+Em \cite{minimalistaproacRA} podemos ver uma abordagem teórica sobre a definição de verificação remota. Nela há a seguinte definição:"o termo verificação remota denota um protocolo, onde o verificador (\verb|Chal|) verifica o estado interno de outro dispositivo (\verb|Prov|). Esse protocolo é executado remotamente em uma rede. Ele tem o objetivo de permitir que o dispositivo honesto (não comprometido) \verb|Prov| crie um token de autentificação que prove a  \verb|Chal| que seu estado é bem definido. Caso \verb|Prov| esteja comprometido e seu estado modificado o token de autenticação deve refletir isso."
+
+\section{Root of Trust}
+
+Quando tratamos de segurança envolvendo comunicação entre dois dispositivos um dos princípios básicos é a raiz de confiança, em inglês \textit{Root of Trust}.
+
+Segundo esse princípio quando queremos criar uma conexão segura ou validar a identidade entre dois dispositivos, é necessário que em algum momento eles tenham compartilhado algum segredo de forma segura e não violável. 
+
+Um exemplo disso pode é a cadeia certificação necessária para a criptografia presente nas conexões TLS. Quando realizamos qualquer conexão TLS, supomos que o dispositivo que a realiza apresenta o certificado de uma autoridade certificadora, Esse certificado foi passado para o dispositivo de forma segura, podendo ser durante a fabricação do mesmo ou a instalação de seu sistema operacional.
+
+Como sugerido por \cite{minimalistaproacRA}, podem existir dois tipos de se formar uma raiz de confiança: a dinâmica e a estática.  Na estática a integridade do sistema é verificada somente na inicialização do mesmo. Sendo assim, sabemos que ele foi iniciado corretamente e supomos que a posteriori não sofrerá modificações. Essa tática é implementada em diversos módulos no mercado que verificam a assinatura co código da inicialização do sistema operacional. Se essa assinatura não for válida, o mesmo é impedido de ser iniciado. Note que para esse tipo tipo de raiz de confiança, a verificação de modificações durante a execução deve ser verificada pelo software que foi inicialmente verificado e aceito.
+
+Outro de é a raiz de confiança dinâmica, onde podemos verificar a integridade do software durante a execução do mesmo. Pode ou não ser realizado uma verificação na inicialização. No entanto ao contrário da verificação estática, ela pode ocorrer em qualquer momento do software. 
+
+Utilizaremos nesse trabalho uma raiz de confiança dinâmica. Para que aa verificação possa ocorrer, o principio da raiz de confiança  será uma chave compartilhada entre quem irá realizar a verificação e o dispositivo. Normante, essa chave é escrita no dispositivo durante a sua fabricação, sendo essa chave é secreta e inviolável. Dessa forma, o verificador irá perguntar se um trecho de código é valido no dispositivo e parte específica do hardware (que tem acesso a chave) irá verificar utilizando a chave. Dessa forma, o verificador irá comparar a chave, o código original e a resposta do dispositivo, podendo declarar ele como comprometido ou integro.
+
+\section{Tipos}
+
+Existem dois principais modos de implementar esquemas de verificação remotas: os baseados em somente software e os baseados em hardware.
+
+Existem várias propostas de verificação baseada somente em software as sugeridas por ... % CITAR
+Todas essas soluções levam premissas que são difíceis de serem contempladas, como por exemplo, que o verificador deve possuir o mesmo hardware do dispositivo que ele está verificando.  A maioria das verificações remotas realizadas por software implicam em saber o tempo que o hardware demorou para executar a verificação. Quando há uma conexão remota, o conhecimento preciso desse tempo pode ser tornar impossível. Existem artigos, como os \cite{Castelluccia:2009:DSA:1653662.1653711}, que contestam soluções de verificação remota baseada em software. Há trabalhos como \cite{nosoftwareattestation} que afirmam que a verificação via software não pode ser realizada se o verificador e o dispositivo a ser verificado estão conectados por uma rede que apresente variações temporais (o tempo de comunicação possa variar).
+
+As soluções de verificação remota baseadas em software necessitam obrigatoriamente a modificação do hardware do dispositivo a ser verificado. Normalmente, essa modificações contemplam a inserção de uma chave secreta no hardware que somente é conhecida pelo seu fabricante e que não pode ser violada por software. Note que se há uma violação no hardware e essa chave é descoberta, a verificação remota se torna falha.
+
+\section{Modelos Existentes}
+
+falar o que se usa no mercado, TPM, processadores com hardware de verificação ja existentes. Static Root of Trust e Dynamic Root of Trust.
+
+%\section{Premissas}
+
+%comentar sobre o artigo sobre o necessário para ter
